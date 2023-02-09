@@ -18,9 +18,11 @@ __pycache__/
 
 .Python
 
-scripts/**
+Scripts/*
 
-./scripts/
+Scripts/
+
+./scripts/**
 
 env/
 
@@ -224,3 +226,5 @@ ENV/
 !**/migrations
 
 !**/migrations/__init__.py
+/Scripts/
+/Scripts/

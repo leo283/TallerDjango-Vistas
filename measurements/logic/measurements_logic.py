@@ -3,11 +3,6 @@ from variables.models import Variable
 from ..models import Measurement
 
 
-# ----------------------------------------------------------------------------------------------------------------#
-# TODO: hacer post put(patch) y delete
-# TODO: Include all of the attributes for measurment object in the constructor, you can get them from the msrmnt.
-# TODO: Do not forget to make the matching postman tests
-# -----------------------------------------------------------------------------------------------------------------#
 
 def get_measurements():
     measurement = Measurement.objects.all()
@@ -22,11 +17,24 @@ def get_measurement(msrmnt_pk):
 def update_measurement(msrmnt_pk, new_msrmnt):
     measurement = get_measurement(msrmnt_pk)
     measurement.value = new_msrmnt["value"]
+    measurement.variable_id = new_msrmnt["variable_id"]
+    measurement.unit = new_msrmnt["unit"]
+    measurement.place = new_msrmnt["place"]
     measurement.save()
     return measurement
 
 
 def create_measurement(msrmnt):
-    measurement = Measurement(value=msrmnt["value"], variable_id=msrmnt["variable_id"])
+    measurement = Measurement(value=msrmnt["value"],
+                              variable_id=msrmnt["variable_id"],
+                              unit=msrmnt["unit"],
+                              place=msrmnt["place"])
+
     measurement.save()
+    return measurement
+
+
+def delete_measurement(msrmnt_pk):
+    measurement = Measurement.objects.get(pk=msrmnt_pk)
+    measurement.delete()
     return measurement
