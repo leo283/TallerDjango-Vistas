@@ -18,7 +18,9 @@ __pycache__/
 
 .Python
 
-scripts/
+scripts/**
+
+./scripts/
 
 env/
 
