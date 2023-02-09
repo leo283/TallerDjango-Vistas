@@ -18,6 +18,8 @@ __pycache__/
 
 .Python
 
+scripts/
+
 env/
 
 build/
@@ -50,6 +52,7 @@ wheels/
 
 *.egg
 
+pyvenv.cfg
 
 
 # PyInstaller
